@@ -25,7 +25,11 @@ export const getAngle = (x: number, y: number) => {
   return (Math.atan2(y, x) * 180) / Math.PI;
 };
 
-export const getUnit = (number: number, range: number, index: number) => {
+export const getUnit = (
+  number: number,
+  range: number,
+  index: number | undefined = undefined
+) => {
   let value = number % range;
 
   if (index && getDigit(number, index) % 2 === 0) {
