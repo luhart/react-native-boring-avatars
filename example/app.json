@@ -1,0 +1,22 @@
+{
+  "name": "react-native-boring-avatars-example",
+  "displayName": "BoringAvatars Example",
+  "expo": {
+    "name": "react-native-boring-avatars-example",
+    "slug": "react-native-boring-avatars-example",
+    "description": "Example app for react-native-boring-avatars",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
