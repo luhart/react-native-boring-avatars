@@ -1,6 +1,6 @@
 # react-native-boring-avatars
 
-React Native implementation of boring avatars
+React Native implementation of [boring avatars](https://boringavatars.com/)
 
 ## Installation
 
@@ -14,13 +14,15 @@ npm install react-native-boring-avatars
 import BoringAvatars from "react-native-boring-avatars";
 
 // ...
+import Avatar from "boring-avatars";
 
-const result = await BoringAvatars.multiply(3, 7);
+<Avatar
+  size={40}
+  name="Maria Mitchell"
+  variant="marble"
+  colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
+/>;
 ```
-
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
 ## License
 
