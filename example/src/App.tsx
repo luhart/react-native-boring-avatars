@@ -7,7 +7,7 @@ export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
   React.useEffect(() => {
-    BoringAvatars.multiply(3, 7).then(setResult);
+    BoringAvatars.multiply(3, 7, 3).then(setResult);
   }, []);
 
   return (
