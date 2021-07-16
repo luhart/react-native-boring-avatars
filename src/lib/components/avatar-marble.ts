@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Svg, { Use, Image } from 'react-native-svg';
+import * as Svg from 'react-native-svg';
 import { getNumber, getUnit, getRandomColor } from '../utilities';
 import { AvatarProps } from './avatar';
 
@@ -32,7 +32,7 @@ const AvatarMarble = (props: AvatarProps) => {
       width={props.size}
       height={props.size}
     >
-      <mask
+      <Mask
         id="mask__marble"
         maskUnits="userSpaceOnUse"
         x={0}
@@ -40,16 +40,16 @@ const AvatarMarble = (props: AvatarProps) => {
         width={SIZE}
         height={SIZE}
       >
-        <rect
+        <Rect
           width={SIZE}
           height={SIZE}
           rx={props.square ? undefined : SIZE * 2}
           fill="white"
         />
-      </mask>
-      <g mask="url(#mask__marble)">
-        <rect width={SIZE} height={SIZE} rx="2" fill={properties[0].color} />
-        <path
+      </Mask>
+      <G mask="url(#mask__marble)">
+        <Rect width={SIZE} height={SIZE} rx="2" fill={properties[0].color} />
+        <Path
           filter="url(#prefix__filter0_f)"
           d="M32.414 59.35L50.376 70.5H72.5v-71H33.728L26.5 13.381l19.057 27.08L32.414 59.35z"
           fill={properties[1].color}
@@ -69,7 +69,7 @@ const AvatarMarble = (props: AvatarProps) => {
             ')'
           }
         />
-        <path
+        <Path
           filter="url(#prefix__filter0_f)"
           style={{
             mixBlendMode: 'overlay',
@@ -92,18 +92,7 @@ const AvatarMarble = (props: AvatarProps) => {
             ')'
           }
         />
-      </g>
-      <defs>
-        <filter
-          id="prefix__filter0_f"
-          filterUnits="userSpaceOnUse"
-          colorInterpolationFilters="sRGB"
-        >
-          <feFlood floodOpacity={0} result="BackgroundImageFix" />
-          <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-          <feGaussianBlur stdDeviation={7} result="effect1_foregroundBlur" />
-        </filter>
-      </defs>
+      </G>
     </Svg>
   );
 };
