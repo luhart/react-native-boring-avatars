@@ -6,7 +6,7 @@ import {
   getRandomColor,
   getContrast,
 } from '../utilities';
-import Svg, { Mask, Rect, G, R, Path } from 'react-native-svg';
+import Svg, { Mask, Rect, G, Path } from 'react-native-svg';
 
 const SIZE = 36;
 
@@ -47,7 +47,7 @@ function generateData(name, colors) {
   return data;
 }
 
-export const AvatarBeam = (props) => {
+const AvatarBeam = (props) => {
   const data = generateData(props.name, props.colors);
 
   return (
@@ -98,7 +98,7 @@ export const AvatarBeam = (props) => {
           fill={data.wrapperColor}
           rx={data.isCircle ? SIZE : SIZE / 6}
         />
-        <R
+        <G
           transform={
             'translate(' +
             data.faceTranslateX +
@@ -144,8 +144,10 @@ export const AvatarBeam = (props) => {
             stroke="none"
             fill={data.faceColor}
           />
-        </R>
+        </G>
       </G>
     </Svg>
   );
 };
+
+export default AvatarBeam;
