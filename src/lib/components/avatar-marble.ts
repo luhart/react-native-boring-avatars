@@ -1,100 +1,151 @@
-import * as React from 'react';
-import * as Svg from 'react-native-svg';
-import { getNumber, getUnit, getRandomColor } from '../utilities';
-import { AvatarProps } from './avatar';
+import {
+  getNumber,
+  getUnit,
+  getBoolean,
+  getRandomColor,
+  getContrast,
+} from '../utilities';
 
-const ELEMENTS = 3;
-const SIZE = 80;
+const SIZE = 36;
 
-function generateColors(name: string | undefined, colors: string[]) {
+function generateData(name: string, colors: string[]) {
   const numFromName = getNumber(name);
   const range = colors && colors.length;
+  const wrapperColor = getRandomColor(numFromName, colors, range);
+  const preTranslateX = getUnit(numFromName, 10, 1);
+  const wrapperTranslateX =
+    preTranslateX < 5 ? preTranslateX + SIZE / 9 : preTranslateX;
+  const preTranslateY = getUnit(numFromName, 10, 2);
+  const wrapperTranslateY =
+    preTranslateY < 5 ? preTranslateY + SIZE / 9 : preTranslateY;
 
-  const elementsProperties = Array.from({ length: ELEMENTS }, (_, i) => ({
-    color: getRandomColor(numFromName + i, colors, range),
-    translateX: getUnit(numFromName * (i + 1), SIZE / 10, 1),
-    translateY: getUnit(numFromName * (i + 1), SIZE / 10, 2),
-    scale: 1.2 + getUnit(numFromName * (i + 1), SIZE / 20) / 10,
-    rotate: getUnit(numFromName * (i + 1), 360, 1),
-  }));
+  const data = {
+    wrapperColor: wrapperColor,
+    faceColor: getContrast(wrapperColor),
+    backgroundColor: getRandomColor(numFromName + 13, colors, range),
+    wrapperTranslateX: wrapperTranslateX,
+    wrapperTranslateY: wrapperTranslateY,
+    wrapperRotate: getUnit(numFromName, 360),
+    wrapperScale: 1 + getUnit(numFromName, SIZE / 12) / 10,
+    isMouthOpen: getBoolean(numFromName, 2),
+    isCircle: getBoolean(numFromName, 1),
+    eyeSpread: getUnit(numFromName, 5),
+    mouthSpread: getUnit(numFromName, 3),
+    faceRotate: getUnit(numFromName, 10, 3),
+    faceTranslateX:
+      wrapperTranslateX > SIZE / 6
+        ? wrapperTranslateX / 2
+        : getUnit(numFromName, 8, 1),
+    faceTranslateY:
+      wrapperTranslateY > SIZE / 6
+        ? wrapperTranslateY / 2
+        : getUnit(numFromName, 7, 2),
+  };
 
-  return elementsProperties;
+  return data;
 }
 
-const AvatarMarble = (props: AvatarProps) => {
-  const properties = generateColors(props.name, props.colors);
+const AvatarBeam = (props) => {
+  const data = generateData(props.name, props.colors);
 
   return (
-    <Svg
+    <svg
       viewBox={'0 0 ' + SIZE + ' ' + SIZE}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       width={props.size}
       height={props.size}
     >
-      <Mask
-        id="mask__marble"
+      <mask
+        id="mask__beam"
         maskUnits="userSpaceOnUse"
         x={0}
         y={0}
         width={SIZE}
         height={SIZE}
       >
-        <Rect
+        <rect
           width={SIZE}
           height={SIZE}
           rx={props.square ? undefined : SIZE * 2}
           fill="white"
         />
-      </Mask>
-      <G mask="url(#mask__marble)">
-        <Rect width={SIZE} height={SIZE} rx="2" fill={properties[0].color} />
-        <Path
-          filter="url(#prefix__filter0_f)"
-          d="M32.414 59.35L50.376 70.5H72.5v-71H33.728L26.5 13.381l19.057 27.08L32.414 59.35z"
-          fill={properties[1].color}
+      </mask>
+      <g mask="url(#mask__beam)">
+        <rect width={SIZE} height={SIZE} fill={data.backgroundColor} />
+        <rect
+          x="0"
+          y="0"
+          width={SIZE}
+          height={SIZE}
           transform={
             'translate(' +
-            properties[1].translateX +
+            data.wrapperTranslateX +
             ' ' +
-            properties[1].translateY +
+            data.wrapperTranslateY +
             ') rotate(' +
-            properties[1].rotate +
+            data.wrapperRotate +
             ' ' +
             SIZE / 2 +
             ' ' +
             SIZE / 2 +
             ') scale(' +
-            properties[2].scale +
+            data.wrapperScale +
             ')'
           }
+          fill={data.wrapperColor}
+          rx={data.isCircle ? SIZE : SIZE / 6}
         />
-        <Path
-          filter="url(#prefix__filter0_f)"
-          style={{
-            mixBlendMode: 'overlay',
-          }}
-          d="M22.216 24L0 46.75l14.108 38.129L78 86l-3.081-59.276-22.378 4.005 12.972 20.186-23.35 27.395L22.215 24z"
-          fill={properties[2].color}
+        <g
           transform={
             'translate(' +
-            properties[2].translateX +
+            data.faceTranslateX +
             ' ' +
-            properties[2].translateY +
+            data.faceTranslateY +
             ') rotate(' +
-            properties[2].rotate +
+            data.faceRotate +
             ' ' +
             SIZE / 2 +
             ' ' +
             SIZE / 2 +
-            ') scale(' +
-            properties[2].scale +
             ')'
           }
-        />
-      </G>
-    </Svg>
+        >
+          {data.isMouthOpen ? (
+            <path
+              d={'M15 ' + (19 + data.mouthSpread) + 'c2 1 4 1 6 0'}
+              stroke={data.faceColor}
+              fill="none"
+              strokeLinecap="round"
+            />
+          ) : (
+            <path
+              d={'M13,' + (19 + data.mouthSpread) + ' a1,0.75 0 0,0 10,0'}
+              fill={data.faceColor}
+            />
+          )}
+          <rect
+            x={14 - data.eyeSpread}
+            y={14}
+            width={1.5}
+            height={2}
+            rx={1}
+            stroke="none"
+            fill={data.faceColor}
+          />
+          <rect
+            x={20 + data.eyeSpread}
+            y={14}
+            width={1.5}
+            height={2}
+            rx={1}
+            stroke="none"
+            fill={data.faceColor}
+          />
+        </g>
+      </g>
+    </svg>
   );
 };
 
-export default AvatarMarble;
+export default AvatarBeam;
