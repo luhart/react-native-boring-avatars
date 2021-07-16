@@ -16,7 +16,7 @@ import Avatar from 'boring-avatars';
 
 <Avatar
   size={40}
-  name="Maria Mitchell"
+  name="Sacagawea"
   variant="beam"
   colors={['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']}
 />;
