@@ -10,7 +10,7 @@ import AvatarBeam from './avatar-beam';
 const variants = ['pixel', 'bauhaus', 'ring', 'beam', 'sunset', 'marble'];
 
 const Avatar = ({
-  variant = 'marble',
+  variant = 'beam',
   colors = ['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90'],
   name = 'Clara Barton',
   square = false,
@@ -19,21 +19,18 @@ const Avatar = ({
 }) => {
   const avatarProps = { colors, name, size, square, ...props };
   const checkedVariant = () => {
-    if (Object.keys(deprecatedVariants).includes(variant)) {
-      return deprecatedVariants[variant];
-    }
     if (variants.includes(variant)) {
       return variant;
     }
     return 'marble';
   };
   const avatars = {
-    // pixel: <AvatarPixel {...avatarProps} />,
-    // bauhaus: <AvatarBauhaus {...avatarProps} />,
-    // ring: <AvatarRing {...avatarProps} />,
     beam: <AvatarBeam {...avatarProps} />,
-    // sunset: <AvatarSunset {...avatarProps} />,
-    // marble: <AvatarMarble {...avatarProps} />,
+    sunset: <AvatarBeam {...avatarProps} />,
+    marble: <AvatarBeam {...avatarProps} />,
+    pixel: <AvatarBeam {...avatarProps} />,
+    bauhaus: <AvatarBeam {...avatarProps} />,
+    ring: <AvatarBeam {...avatarProps} />,
   };
   return avatars[checkedVariant()];
 };

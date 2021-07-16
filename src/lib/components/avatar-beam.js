@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   getNumber,
   getUnit,
@@ -5,7 +6,7 @@ import {
   getRandomColor,
   getContrast,
 } from '../utilities';
-import * as SVG from 'react-native-svg';
+import Svg, { Mask, Rect, G, R, Path } from 'react-native-svg';
 
 const SIZE = 36;
 
@@ -26,7 +27,7 @@ function generateData(name, colors) {
     backgroundColor: getRandomColor(numFromName + 13, colors, range),
     wrapperTranslateX: wrapperTranslateX,
     wrapperTranslateY: wrapperTranslateY,
-    wrapperRotate: getUnit(numFromName, 360),
+    wrapperrotate: getUnit(numFromName, 360),
     wrapperScale: 1 + getUnit(numFromName, SIZE / 12) / 10,
     isMouthOpen: getBoolean(numFromName, 2),
     isCircle: getBoolean(numFromName, 1),
@@ -46,7 +47,7 @@ function generateData(name, colors) {
   return data;
 }
 
-const AvatarBeam = (props) => {
+export const AvatarBeam = (props) => {
   const data = generateData(props.name, props.colors);
 
   return (
@@ -148,5 +149,3 @@ const AvatarBeam = (props) => {
     </Svg>
   );
 };
-
-export default AvatarBeam;

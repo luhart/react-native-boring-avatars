@@ -1,4 +1,4 @@
-export const getNumber = (name: string | undefined) => {
+export const getNumber = (name) => {
   const charactersArray = name ? Array.from(name) : [];
   let charactersCodesSum = 0;
 
@@ -9,27 +9,23 @@ export const getNumber = (name: string | undefined) => {
   return charactersCodesSum;
 };
 
-export const getModulus = (num: number, max: number) => {
+export const getModulus = (num, max) => {
   return num % max;
 };
 
-export const getDigit = (number: number, ntn: number) => {
+export const getDigit = (number, ntn) => {
   return Math.floor((number / Math.pow(10, ntn)) % 10);
 };
 
-export const getBoolean = (number: number, ntn: number) => {
+export const getBoolean = (number, ntn) => {
   return !(getDigit(number, ntn) % 2);
 };
 
-export const getAngle = (x: number, y: number) => {
+export const getAngle = (x, y) => {
   return (Math.atan2(y, x) * 180) / Math.PI;
 };
 
-export const getUnit = (
-  number: number,
-  range: number,
-  index: number | undefined = undefined
-) => {
+export const getUnit = (number, range, index) => {
   let value = number % range;
 
   if (index && getDigit(number, index) % 2 === 0) {
@@ -37,15 +33,11 @@ export const getUnit = (
   } else return value;
 };
 
-export const getRandomColor = (
-  number: number,
-  colors: string[],
-  range: number
-) => {
+export const getRandomColor = (number, colors, range) => {
   return colors[number % range];
 };
 
-export const getContrast = (hexcolor: string) => {
+export const getContrast = (hexcolor) => {
   // If a leading # is provided, remove it
   if (hexcolor.slice(0, 1) === '#') {
     hexcolor = hexcolor.slice(1);
