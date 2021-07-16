@@ -1,5 +1,5 @@
-export const getNumber = (name: string) => {
-  const charactersArray = Array.from(name);
+export const getNumber = (name: string | undefined) => {
+  const charactersArray = name ? Array.from(name) : [];
   let charactersCodesSum = 0;
 
   charactersArray.forEach((charactersArrayItem) => {
