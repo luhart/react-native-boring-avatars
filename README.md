@@ -11,16 +11,14 @@ npm install react-native-boring-avatars
 ## Usage
 
 ```js
-import BoringAvatars from "react-native-boring-avatars";
-
 // ...
-import Avatar from "boring-avatars";
+import Avatar from 'boring-avatars';
 
 <Avatar
   size={40}
   name="Maria Mitchell"
   variant="marble"
-  colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
+  colors={['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']}
 />;
 ```
 
