@@ -1,18 +1,18 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import BoringAvatars from 'react-native-boring-avatars';
+import { StyleSheet, View } from 'react-native';
+import Avatar from 'react-native-boring-avatars';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    BoringAvatars.multiply(3, 7, 3).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Avatar
+        size={40}
+        name="Maria Mitchell"
+        variant="beam"
+        colors={['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']}
+      />
+      ;
     </View>
   );
 }

@@ -5,15 +5,7 @@ import PropTypes from 'prop-types';
 // import AvatarPixel from './avatar-pixel';
 // import AvatarBeam from './avatar-beam';
 // import AvatarSunset from './avatar-sunset';
-import AvatarMarble from './avatar-marble';
-
-export interface AvatarProps {
-  size: number | string;
-  name: string;
-  square: boolean;
-  variant: 'marble' | 'beam' | 'pixel' | 'sunset' | 'ring' | 'bauhaus';
-  colors: string[];
-}
+import AvatarBeam from './avatar-beam';
 
 const variants = ['pixel', 'bauhaus', 'ring', 'beam', 'sunset', 'marble'];
 
@@ -35,13 +27,13 @@ const Avatar = ({
     }
     return 'marble';
   };
-  const avatars: { string: Avatar } = {
+  const avatars = {
     // pixel: <AvatarPixel {...avatarProps} />,
     // bauhaus: <AvatarBauhaus {...avatarProps} />,
     // ring: <AvatarRing {...avatarProps} />,
-    // beam: <AvatarBeam {...avatarProps} />,
+    beam: <AvatarBeam {...avatarProps} />,
     // sunset: <AvatarSunset {...avatarProps} />,
-    marble: <AvatarMarble {...avatarProps} />,
+    // marble: <AvatarMarble {...avatarProps} />,
   };
   return avatars[checkedVariant()];
 };

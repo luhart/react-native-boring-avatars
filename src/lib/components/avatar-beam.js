@@ -5,10 +5,11 @@ import {
   getRandomColor,
   getContrast,
 } from '../utilities';
+import * as SVG from 'react-native-svg';
 
 const SIZE = 36;
 
-function generateData(name: string, colors: string[]) {
+function generateData(name, colors) {
   const numFromName = getNumber(name);
   const range = colors && colors.length;
   const wrapperColor = getRandomColor(numFromName, colors, range);
@@ -49,14 +50,14 @@ const AvatarBeam = (props) => {
   const data = generateData(props.name, props.colors);
 
   return (
-    <svg
+    <Svg
       viewBox={'0 0 ' + SIZE + ' ' + SIZE}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       width={props.size}
       height={props.size}
     >
-      <mask
+      <Mask
         id="mask__beam"
         maskUnits="userSpaceOnUse"
         x={0}
@@ -64,16 +65,16 @@ const AvatarBeam = (props) => {
         width={SIZE}
         height={SIZE}
       >
-        <rect
+        <Rect
           width={SIZE}
           height={SIZE}
           rx={props.square ? undefined : SIZE * 2}
           fill="white"
         />
-      </mask>
-      <g mask="url(#mask__beam)">
-        <rect width={SIZE} height={SIZE} fill={data.backgroundColor} />
-        <rect
+      </Mask>
+      <G mask="url(#mask__beam)">
+        <Rect width={SIZE} height={SIZE} fill={data.backgroundColor} />
+        <Rect
           x="0"
           y="0"
           width={SIZE}
@@ -96,7 +97,7 @@ const AvatarBeam = (props) => {
           fill={data.wrapperColor}
           rx={data.isCircle ? SIZE : SIZE / 6}
         />
-        <g
+        <R
           transform={
             'translate(' +
             data.faceTranslateX +
@@ -112,19 +113,19 @@ const AvatarBeam = (props) => {
           }
         >
           {data.isMouthOpen ? (
-            <path
+            <Path
               d={'M15 ' + (19 + data.mouthSpread) + 'c2 1 4 1 6 0'}
               stroke={data.faceColor}
               fill="none"
               strokeLinecap="round"
             />
           ) : (
-            <path
+            <Path
               d={'M13,' + (19 + data.mouthSpread) + ' a1,0.75 0 0,0 10,0'}
               fill={data.faceColor}
             />
           )}
-          <rect
+          <Rect
             x={14 - data.eyeSpread}
             y={14}
             width={1.5}
@@ -133,7 +134,7 @@ const AvatarBeam = (props) => {
             stroke="none"
             fill={data.faceColor}
           />
-          <rect
+          <Rect
             x={20 + data.eyeSpread}
             y={14}
             width={1.5}
@@ -142,9 +143,9 @@ const AvatarBeam = (props) => {
             stroke="none"
             fill={data.faceColor}
           />
-        </g>
-      </g>
-    </svg>
+        </R>
+      </G>
+    </Svg>
   );
 };
 
