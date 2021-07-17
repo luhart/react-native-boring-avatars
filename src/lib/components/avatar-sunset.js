@@ -1,6 +1,13 @@
 import * as React from 'react';
 import { getNumber, getRandomColor } from '../utilities';
-import Svg, { Mask, Rect, G, Path } from 'react-native-svg';
+import Svg, {
+  Mask,
+  Rect,
+  G,
+  Path,
+  LinearGradient,
+  Stop,
+} from 'react-native-svg';
 
 const ELEMENTS = 4;
 const SIZE = 80;
@@ -21,14 +28,14 @@ const AvatarSunset = (props) => {
   const name = props.name.replace(/\s/g, '');
 
   return (
-    <svg
+    <Svg
       viewBox={'0 0 ' + SIZE + ' ' + SIZE}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       width={props.size}
       height={props.size}
     >
-      <mask
+      <Mask
         id="mask__sunset"
         maskUnits="userSpaceOnUse"
         x={0}
@@ -36,25 +43,25 @@ const AvatarSunset = (props) => {
         width={SIZE}
         height={SIZE}
       >
-        <rect
+        <Rect
           width={SIZE}
           height={SIZE}
           rx={props.square ? undefined : SIZE * 2}
           fill="white"
         />
-      </mask>
-      <g mask="url(#mask__sunset)">
-        <path
+      </Mask>
+      <G mask="url(#mask__sunset)">
+        <Path
           fill={'url(#gradient_paint0_linear_' + name + ')'}
           d="M0 0h80v40H0z"
         />
-        <path
+        <Path
           fill={'url(#gradient_paint1_linear_' + name + ')'}
           d="M0 40h80v40H0z"
         />
-      </g>
-      <defs>
-        <linearGradient
+      </G>
+      <Defs>
+        <LinearGradient
           id={'gradient_paint0_linear_' + name}
           x1={SIZE / 2}
           y1={0}
@@ -62,10 +69,10 @@ const AvatarSunset = (props) => {
           y2={SIZE / 2}
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor={properties[0].color} />
-          <stop offset={1} stopColor={properties[1].color} />
-        </linearGradient>
-        <linearGradient
+          <Stop stopColor={properties[0].color} />
+          <Stop offset={1} stopColor={properties[1].color} />
+        </LinearGradient>
+        <LinearGradient
           id={'gradient_paint1_linear_' + name}
           x1={SIZE / 2}
           y1={SIZE / 2}
@@ -73,11 +80,11 @@ const AvatarSunset = (props) => {
           y2={SIZE}
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor={properties[2].color} />
-          <stop offset={1} stopColor={properties[3].color} />
-        </linearGradient>
-      </defs>
-    </svg>
+          <Stop stopColor={properties[2].color} />
+          <Stop offset={1} stopColor={properties[3].color} />
+        </LinearGradient>
+      </Defs>
+    </Svg>
   );
 };
 
