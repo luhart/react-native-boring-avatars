@@ -22,12 +22,13 @@ const Avatar = ({
     if (variants.includes(variant)) {
       return variant;
     }
-    return 'marble';
+    return 'beam';
   };
   const avatars = {
     beam: <AvatarBeam {...avatarProps} />,
     sunset: <AvatarBeam {...avatarProps} />,
-    marble: <AvatarBeam {...avatarProps} />,
+
+    // marble: <AvatarBeam {...avatarProps} />,
     pixel: <AvatarBeam {...avatarProps} />,
     bauhaus: <AvatarBeam {...avatarProps} />,
     ring: <AvatarBeam {...avatarProps} />,
