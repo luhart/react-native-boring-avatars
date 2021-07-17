@@ -27,7 +27,6 @@ const Avatar = ({
   const avatars = {
     beam: <AvatarBeam {...avatarProps} />,
     sunset: <AvatarBeam {...avatarProps} />,
-
     // marble: <AvatarBeam {...avatarProps} />,
     pixel: <AvatarBeam {...avatarProps} />,
     bauhaus: <AvatarBeam {...avatarProps} />,
