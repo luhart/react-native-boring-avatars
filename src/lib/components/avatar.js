@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 // import AvatarRing from './avatar-ring';
 // import AvatarPixel from './avatar-pixel';
 // import AvatarBeam from './avatar-beam';
-// import AvatarSunset from './avatar-sunset';
 import AvatarBeam from './avatar-beam';
+import AvatarSunset from './avatar-sunset';
 
 const variants = ['pixel', 'bauhaus', 'ring', 'beam', 'sunset', 'marble'];
 
@@ -26,7 +26,7 @@ const Avatar = ({
   };
   const avatars = {
     beam: <AvatarBeam {...avatarProps} />,
-    sunset: <AvatarBeam {...avatarProps} />,
+    sunset: <AvatarSunset {...avatarProps} />,
     // marble: <AvatarBeam {...avatarProps} />,
     pixel: <AvatarBeam {...avatarProps} />,
     bauhaus: <AvatarBeam {...avatarProps} />,
