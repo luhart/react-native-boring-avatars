@@ -12,7 +12,7 @@ const variants = ['pixel', 'bauhaus', 'ring', 'beam', 'sunset', 'marble'];
 const Avatar = ({
   variant = 'beam',
   colors = ['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90'],
-  name = 'Clara Barton',
+  name = 'Sacagawea',
   square = false,
   size = 40,
   ...props
