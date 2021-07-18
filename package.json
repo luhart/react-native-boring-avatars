@@ -1,6 +1,6 @@
 {
   "name": "react-native-boring-avatars",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Native implementation of boring avatars",
   "main": "lib/module/index.js",
   "module": "lib/module/index.js",
