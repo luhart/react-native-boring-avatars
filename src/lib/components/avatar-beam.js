@@ -27,7 +27,7 @@ function generateData(name, colors) {
     backgroundColor: getRandomColor(numFromName + 13, colors, range),
     wrapperTranslateX: wrapperTranslateX,
     wrapperTranslateY: wrapperTranslateY,
-    wrapperrotate: getUnit(numFromName, 360),
+    wrapperRotate: getUnit(numFromName, 360),
     wrapperScale: 1 + getUnit(numFromName, SIZE / 12) / 10,
     isMouthOpen: getBoolean(numFromName, 2),
     isCircle: getBoolean(numFromName, 1),
