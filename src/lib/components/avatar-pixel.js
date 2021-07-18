@@ -16,7 +16,7 @@ function generateColors(name, colors) {
   return elementsProperties;
 }
 
-const AvatarSunset = (props) => {
+const AvatarPixel = (props) => {
   const properties = generateColors(props.name, props.colors);
 
   return (
@@ -407,4 +407,4 @@ const AvatarSunset = (props) => {
   );
 };
 
-export default AvatarSunset;
+export default AvatarPixel;
