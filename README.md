@@ -5,7 +5,7 @@ React Native implementation of [boring avatars](https://boringavatars.com/)
 ## Installation
 
 ```sh
-npm install react-native-boring-avatars
+yarn add boring-avatars
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ import Avatar from 'react-native-boring-avatars';
 
 ## Caveat
 
-The marble variant is not suppported. This is because `react-native-svg` does not support the SVG `filter` attribute which the marble variant depends on. 🙁 Check [here](https://github.com/react-native-svg/react-native-svg/issues/150) for more details.
+The marble variant is not suppported. This is because `react-native-svg` does not support the SVG `filter` attribute which the marble variant depends on. 🙁 Check [here](https://github.com/react-native-svg/react-native-svg/issues/150) for more details on react-native-svg on this issue.
 
 ## License
 
