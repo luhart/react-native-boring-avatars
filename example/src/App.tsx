@@ -9,7 +9,7 @@ export default function App() {
       <Avatar
         size={40}
         name="Sacagawea"
-        variant="pixel"
+        variant="ring"
         colors={['#A3A948', '#EDB92E', '#F85931', '#CE1836', '#009989']}
       />
     </View>

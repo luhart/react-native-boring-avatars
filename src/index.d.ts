@@ -3,7 +3,7 @@ declare module 'react-native-boring-avatars' {
     size?: number | string;
     name?: string;
     square?: boolean;
-    variant?: 'beam' | 'sunset' | 'bauhaus' | 'pixel'; // | 'marble' |  | 'ring' | ;
+    variant?: 'beam' | 'sunset' | 'bauhaus' | 'pixel' | 'ring'; // | 'marble';
     colors?: string[];
   }
 

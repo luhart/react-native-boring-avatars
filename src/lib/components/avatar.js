@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import AvatarRing from './avatar-ring';
-// import AvatarBeam from './avatar-beam';
 import AvatarBeam from './avatar-beam';
 import AvatarSunset from './avatar-sunset';
 import AvatarBauhaus from './avatar-bauhaus';
 import AvatarPixel from './avatar-pixel';
+import AvatarRing from './avatar-ring';
 
 const variants = ['pixel', 'bauhaus', 'ring', 'beam', 'sunset', 'marble'];
 
@@ -30,7 +29,7 @@ const Avatar = ({
     // marble: <AvatarBeam {...avatarProps} />,
     pixel: <AvatarPixel {...avatarProps} />,
     bauhaus: <AvatarBauhaus {...avatarProps} />,
-    ring: <AvatarBeam {...avatarProps} />,
+    ring: <AvatarRing {...avatarProps} />,
   };
   return avatars[checkedVariant()];
 };
