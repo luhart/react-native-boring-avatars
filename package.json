@@ -32,7 +32,13 @@
     "bootstrap": "yarn example && yarn && yarn pods"
   },
   "keywords": [
+    "react",
+    "javascript",
+    "avatar",
+    "profile-picutre-generator",
     "react-native",
+    "svg",
+    "react-native-svg",
     "ios",
     "android"
   ],
