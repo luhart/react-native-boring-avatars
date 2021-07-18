@@ -5,6 +5,7 @@ import Svg, {
   Rect,
   G,
   Path,
+  Defs,
   LinearGradient,
   Stop,
 } from 'react-native-svg';

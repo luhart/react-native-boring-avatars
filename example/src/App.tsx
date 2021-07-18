@@ -9,8 +9,8 @@ export default function App() {
       <Avatar
         size={40}
         name="Sacagawea"
-        variant="beam"
-        colors={['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']}
+        variant="sunset"
+        colors={['#A3A948', '#EDB92E', '#F85931', '#CE1836', '#009989']}
       />
     </View>
   );
