@@ -7,9 +7,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Avatar
-        size={40}
+        size={80}
         name="Sacagawea"
-        variant="ring"
+        variant="pixel"
         colors={['#A3A948', '#EDB92E', '#F85931', '#CE1836', '#009989']}
       />
     </View>
